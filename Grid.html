@@ -1,0 +1,38 @@
+<html>
+<head></head>
+<body>
+<style>
+	#c
+	{width:280px; height:200px;}
+</style>
+	<canvas id="c" width="280px" height="200px" ></canvas>
+	<img src='pedro.jpg' style='display:none;' id="img" />
+	<script>
+		var c_canvas = document.getElementById("c");
+		var context = c_canvas.getContext("2d");
+
+		window.onload = function(){
+			
+			var img=document.getElementById("img");
+			context.drawImage(img,0,0);
+			var w_c = 280;
+		var h_c = 200; 
+		var interval = 60;
+		
+		for (var x = 0; x < w_c; x += interval) {
+			context.moveTo(x, 0);
+		    context.lineTo(x,w_c);
+		}
+
+		for (var y = 0; y < w_c; y += interval) {
+			context.moveTo(0, y);
+			context.lineTo(w_c, y);
+		}
+		
+		context.strokeStyle = "#ddd";
+		context.stroke();
+	}
+
+	</script>
+</body>
+</html>
