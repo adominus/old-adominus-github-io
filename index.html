@@ -128,6 +128,11 @@ WebFontConfig = {
 	var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', {preload: preload, create: create, update: update, render:render}); 
 
 	function render() {
+
+		game.debug.text(game.input.pointer1.screenX + " - screen", 100, 100); 
+		game.debug.text(game.world.width / 2.0 + " ", 100, 140); 
+
+
 		game.debug.pointer(game.input.pointer1); 
 	}
 
@@ -375,11 +380,6 @@ WebFontConfig = {
 
 			//sprite.angle = 0; 
 			
-			if(game.input.pointer1.isDown) {
-				console.log(game.input.pointer1.screenX + " - screen"); 
-				console.log(game.world.width/ 2.0); 
-			}
-
 			if(cursors.left.isDown || (game.input.pointer1.isDown && game.input.pointer1.screenX < (game.world.width / 2.0)) ) 
 			{	
 				sprite.body.velocity.x = -500; 
