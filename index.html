@@ -374,6 +374,11 @@ WebFontConfig = {
 			sprite.body.velocity.y = 0; 
 
 			//sprite.angle = 0; 
+			
+			if(game.input.pointer1.isDown) {
+				console.log(game.input.pointer1.screenX + " - screen"); 
+				console.log(game.world.width/ 2.0); 
+			}
 
 			if(cursors.left.isDown || (game.input.pointer1.isDown && game.input.pointer1.screenX < (game.world.width / 2.0)) ) 
 			{	
