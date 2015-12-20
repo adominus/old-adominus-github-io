@@ -375,7 +375,7 @@ WebFontConfig = {
 
 			//sprite.angle = 0; 
 
-			if(cursors.left.isDown || (game.input.pointer1.isDown && game.input.pointer1.screenX < (game.world.width / 2.0) ) 
+			if(cursors.left.isDown || (game.input.pointer1.isDown && game.input.pointer1.screenX < (game.world.width / 2.0)) ) 
 			{	
 				sprite.body.velocity.x = -500; 
 				if(sleighRotateTween == null || !sleighRotateTween.isRunning) {
@@ -384,7 +384,7 @@ WebFontConfig = {
 					}
 				}
 			}
-			else if(cursors.right.isDown || (game.input.pointer1.isDown && game.input.pointer1.screenX > (game.world.width / 2.0)) 
+			else if(cursors.right.isDown || (game.input.pointer1.isDown && game.input.pointer1.screenX > (game.world.width / 2.0))) 
 			{	
 				sprite.body.velocity.x = 500; 
 				if(sleighRotateTween == null || !sleighRotateTween.isRunning) {
