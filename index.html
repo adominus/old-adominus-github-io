@@ -128,7 +128,7 @@ WebFontConfig = {
 	var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', {preload: preload, create: create, update: update, render:render}); 
 
 	function render() {
-		game.debug.pointer(game.input.pointer1); 
+		// game.debug.pointer(game.input.pointer1); 
 	}
 
 	function preload() {
@@ -202,6 +202,8 @@ WebFontConfig = {
 		var space_key = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 		space_key.onDown.add(insertToken, this); 
 
+		game.input.onTap.add(tappyTapTap, this); 
+
 		cursors = game.input.keyboard.createCursorKeys(); 
 
 	}
@@ -223,6 +225,12 @@ WebFontConfig = {
 		mainTitleSubtext = game.add.text(game.world.centerX, game.world.centerY, "Press space to slay", styleFrijole); 
 		mainTitleSubtext.anchor.setTo(0.5, 0.5); 
 
+	}
+
+	function tappyTapTap(pointer, doubleTap) {
+		if(hasGameStarted) return; 
+
+		insertToken(); 
 	}
 
 	function insertToken() {
@@ -367,7 +375,7 @@ WebFontConfig = {
 
 			//sprite.angle = 0; 
 
-			if(cursors.left.isDown) 
+			if(cursors.left.isDown || (game.input.pointer1.isDown && game.input.pointer1.screenX < (game.world.width / 2.0) ) 
 			{	
 				sprite.body.velocity.x = -500; 
 				if(sleighRotateTween == null || !sleighRotateTween.isRunning) {
@@ -376,7 +384,7 @@ WebFontConfig = {
 					}
 				}
 			}
-			else if(cursors.right.isDown) 
+			else if(cursors.right.isDown || (game.input.pointer1.isDown && game.input.pointer1.screenX > (game.world.width / 2.0)) 
 			{	
 				sprite.body.velocity.x = 500; 
 				if(sleighRotateTween == null || !sleighRotateTween.isRunning) {
