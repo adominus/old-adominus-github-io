@@ -125,7 +125,11 @@ WebFontConfig = {
     }
 };
 
-	var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', {preload: preload, create: create, update: update}); 
+	var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', {preload: preload, create: create, update: update, render:render}); 
+
+	function render() {
+		game.debug.pointer(game.input.pointer1); 
+	}
 
 	function preload() {
 		// Setup Fonts
