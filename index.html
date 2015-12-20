@@ -130,7 +130,11 @@ WebFontConfig = {
 	function render() {
 
 		game.debug.text(game.input.pointer1.screenX + " - screen", 100, 100); 
-		game.debug.text(game.world.width / 2.0 + " ", 100, 140); 
+		game.debug.text(game.input.pointer1.x + " - scaled", 100, 130); 
+		game.debug.text(game.input.pointer1.clientX + " - screen", 100, 160); 
+		game.debug.text(game.world.width + " world width", 100, 190); 
+		game.debug.text(game.world.centerX + " world center x ", 100, 220); 
+		game.debug.text(game.width + " game width", 100, 250); 
 
 
 		game.debug.pointer(game.input.pointer1); 
